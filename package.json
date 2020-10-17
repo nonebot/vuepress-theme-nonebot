@@ -1,0 +1,26 @@
+{
+  "name": "vuepress-theme-nonebot",
+  "version": "4.8.0",
+  "description": "VuePress theme for NoneBot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Axway Appcelerator",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/appcelerator/docs-devkit.git",
+    "directory": "packages/vuepress/vuepress-theme-titanium"
+  },
+  "dependencies": {
+    "@vuepress/plugin-nprogress": "^1.5.2",
+    "@vuepress/plugin-search": "^1.5.2",
+    "docsearch.js": "^2.6.3",
+    "lodash": "^4.17.15",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vuepress-plugin-container": "^2.0.2",
+    "vuepress-plugin-smooth-scroll": "^0.0.9"
+  }
+}
