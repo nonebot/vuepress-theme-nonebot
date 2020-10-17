@@ -3,7 +3,7 @@
     v-if="isInternal"
     class="nav-link"
     :to="link"
-    :exact="true"
+    exact
     @focusout.native="focusoutAction"
   >
     {{ item.text }}
