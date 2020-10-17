@@ -1,27 +1,66 @@
-const path = require('path')
+const path = require("path");
 
 // Theme API.
 module.exports = (options, ctx) => ({
-  globalLayout: './layouts/GlobalLayout.vue',
-  alias () {
-    const { themeConfig, siteConfig } = ctx
+  globalLayout: "./layouts/GlobalLayout.vue",
+  alias() {
+    const { themeConfig, siteConfig } = ctx;
     // resolve algolia
-    const isAlgoliaSearch = (
+    const isAlgoliaSearch =
       themeConfig.algolia ||
-      Object.keys(siteConfig.locales && themeConfig.locales || {})
-        .some(base => themeConfig.locales[base].algolia)
-    )
+      Object.keys((siteConfig.locales && themeConfig.locales) || {}).some(
+        (base) => themeConfig.locales[base].algolia
+      );
     return {
-      '@AlgoliaSearchBox': isAlgoliaSearch
-        ? path.resolve(__dirname, 'components/AlgoliaSearchBox.vue')
-        : path.resolve(__dirname, 'noopModule.js')
-    }
+      "@AlgoliaSearchBox": isAlgoliaSearch
+        ? path.resolve(__dirname, "components/AlgoliaSearchBox.vue")
+        : path.resolve(__dirname, "noopModule.js"),
+    };
   },
   plugins: [
-    ['@vuepress/search', { searchMaxSuggestions: 10 }],
-    '@vuepress/nprogress',
-    ['container', { type: 'tip' }],
-    ['container', { type: 'warning' }],
-    ['container', { type: 'danger' }]
-  ]
-})
+    ["@vuepress/search", { searchMaxSuggestions: 10 }],
+    "@vuepress/nprogress",
+    [
+      "container",
+      {
+        type: "tip",
+        defaultTitle: {
+          "/": "TIP",
+          "/zh/": "提示",
+        },
+      },
+    ],
+    [
+      "container",
+      {
+        type: "warning",
+        defaultTitle: {
+          "/": "WARNING",
+          "/zh/": "注意",
+        },
+      },
+    ],
+    [
+      "container",
+      {
+        type: "danger",
+        defaultTitle: {
+          "/": "WARNING",
+          "/zh/": "警告",
+        },
+      },
+    ],
+    [
+      "container",
+      {
+        type: "details",
+        before: (info) =>
+          `<details class="custom-block details">${
+            info ? `<summary>${info}</summary>` : ""
+          }\n`,
+        after: () => "</details>\n",
+      },
+    ],
+    ["smooth-scroll", themeConfig.smoothScroll === true],
+  ],
+});
