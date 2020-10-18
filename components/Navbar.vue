@@ -2,7 +2,7 @@
   <header class="navbar">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')" />
 
-    <RouterLink :to="$localePath" class="home-link">
+    <RouterLink :to="versionedLocalePath" class="home-link">
       <img
         v-if="$site.themeConfig.logo"
         class="logo"
@@ -94,6 +94,19 @@ export default {
 
     isVersionedPage() {
       return this.$page.version !== undefined;
+    },
+
+    versionedLocalePath() {
+      if (this.$versions && this.$versions.length > 0) {
+        let localePath = this.$localePath;
+        const currentVersion = this.$versions[0];
+        if (this.$page.version !== currentVersion) {
+          localePath = `${localePath}${currentPage.version}/`;
+        }
+        return localePath;
+      } else {
+        return this.$localePath;
+      }
     },
 
     versionsDropdown() {
