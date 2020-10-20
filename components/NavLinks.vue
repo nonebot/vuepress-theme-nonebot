@@ -40,7 +40,7 @@ export default {
           this.$page.version &&
           (this.$site.themeConfig.versionedSidebar[this.$page.version]
             .locales ||
-            this.$site.themeConfig.nextSiderbar.locales);
+            this.$site.themeConfig.nextSidebar.locales);
         let navConfig =
           versionedLocaleConfig && versionedLocaleConfig[this.$localePath].nav;
         if (!navConfig) {
