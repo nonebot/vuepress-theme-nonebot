@@ -41,18 +41,12 @@ export default {
           (this.$site.themeConfig.versionedSidebar[this.$page.version]
             .locales ||
             this.$site.themeConfig.nextSiderbar.locales);
-        console.log(
-          versionedLocaleConfig,
-          this.$site.themeConfig.versionedSidebar[this.$page.version].locales,
-          this.$site.themeConfig.nextSidebar.locales
-        );
         let navConfig =
           versionedLocaleConfig && versionedLocaleConfig[this.$localePath].nav;
         if (!navConfig) {
           navConfig =
             this.$themeLocaleConfig.nav || this.$site.themeConfig.nav || [];
         }
-        console.log(navConfig);
         return versionifyUserNav(
           navConfig,
           this.$page,
