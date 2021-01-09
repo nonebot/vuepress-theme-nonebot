@@ -118,8 +118,8 @@ export default {
         base.replace(endingSlashRE, '') +
         `/edit` +
         `/${docsBranch}/` +
-        (docsDir ? docsDir.replace(endingSlashRE, '') + '/' : '') +
-        path
+        (docsDir ? docsDir.replace(endingSlashRE, '') : '') +
+        path.replace(`html`, 'md')
       )
     }
   }
