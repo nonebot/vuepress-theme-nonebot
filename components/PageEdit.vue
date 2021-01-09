@@ -119,7 +119,7 @@ export default {
         `/edit` +
         `/${docsBranch}/` +
         (docsDir ? docsDir.replace(endingSlashRE, '') : '') +
-        path.replace(`html`, 'md')
+        path.replace(`.html`, `.md`)
       )
     }
   }
