@@ -100,7 +100,7 @@ export default {
       if (this.$versions && this.$versions.length > 0) {
         let localePath = this.$localePath;
         const currentVersion = this.$versions[0];
-        if (this.$page.version !== currentVersion) {
+        if (this.$page.version && this.$page.version !== currentVersion) {
           localePath = `${localePath}${this.$page.version}/`;
         }
         return localePath;
