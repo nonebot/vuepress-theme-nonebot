@@ -97,6 +97,8 @@ div[class*="language-"]
       border-right 1px solid rgba(0, 0, 0, 66%)
       background-color $codeBgColor
 
+code, kbd, .line-numbers-wrapper, .highlight-lines, pre[class*=language-]
+  font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
 
 for lang in $codeLang
   div{'[class~="language-' + lang + '"]'}
